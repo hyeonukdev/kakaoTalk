@@ -1,4 +1,7 @@
 import { DataTypes } from "sequelize";
+import sequelize from "../sequelize";
+import Room from "./room";
+import User from "./user";
 
 const Chat = sequelize.define("chat", {
   id: {
@@ -9,13 +12,13 @@ const Chat = sequelize.define("chat", {
   content: DataTypes.STRING,
   senderId: {
     type: DataTypes.UUID,
-    refrenced: {
+    references: {
       model: User,
     },
   },
   roomId: {
     type: DataTypes.INTEGER,
-    refrenced: {
+    references: {
       model: Room,
     },
   },
